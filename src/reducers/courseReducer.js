@@ -5,7 +5,7 @@ export default function courseReducer(state = [], action) {
         ...state,
         Object.assign({}, action.course)
      ];
-     
+
     default:
       return state;
   }
