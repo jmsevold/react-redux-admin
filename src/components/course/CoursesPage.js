@@ -8,25 +8,6 @@ import * as courseActions from '../../actions/courseActions';
 class CoursesPage extends Component {
   constructor(props,context){
     super(props,context);
-    this.state = {
-      course: {title: ''}
-    };
-    this.onTitleChange = this.onTitleChange.bind(this);
-    this.onSaveCourse = this.onSaveCourse.bind(this);
-  }
-
-  onTitleChange(e){
-    const course = this.state.course;
-    course.title = e.target.value;
-    this.setState({
-      course: course
-    });
-    console.log(`${this.state.course.title}`);
-  }
-
-  onSaveCourse(){
-    console.log(`saving course ${this.state.course.title}`);
-    this.props.actions.createCourse(this.state.course);
   }
 
   courseRow(course,index){
@@ -38,18 +19,7 @@ class CoursesPage extends Component {
       <div>
         <h1>Courses</h1>
         {this.props.courses.map(this.courseRow)}
-        <h2>Add Course</h2>
-        <input
-          type="text"
-          onChange={this.onTitleChange}
-          value={this.state.course.title}
-        />
 
-        <input
-          type="submit"
-          onClick={this.onSaveCourse}
-          value="Save"
-        />
       </div>
     );
   }
